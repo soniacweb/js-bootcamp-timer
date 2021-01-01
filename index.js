@@ -14,7 +14,9 @@ class Timer {
   }
 
   tick() {
-    console.log('tick calling')
+    const timeRemaining = parseFloat(this.duration.value)
+    console.log(timeRemaining)
+    this.duration.value = timeRemaining -1
   }
 
   pause = () => {
