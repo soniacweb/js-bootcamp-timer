@@ -16,3 +16,31 @@ JS topics covered:
 - Binding Events in a Class based function
 - 'This' key word
 - Events
+
+# Creating a Class Timer and start method:
+
+```
+class Timer {
+  constructor(duration, start, pause) {
+    this.duration = duration
+    this.start = start
+    this.pause = pause
+
+    this.start.addEventListener('click', this.start)
+  }
+  start() {
+    console.log('starting')
+  }
+}
+
+```
+
+# Selecting HTML elements using querySelector
+
+```
+
+const duration = document.querySelector('#duration')
+const start = document.querySelector('#start')
+const pause = document.querySelector('#pause')
+
+```
