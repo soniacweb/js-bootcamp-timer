@@ -1,16 +1,29 @@
 class Timer {
-  constructor(duration, start, pause) {
+  constructor(duration, startb, pause) {
     this.duration = duration
-    this.start = start
-    this.pause = pause
+    this.startb = startb
+    this.pauseb = pause
 
-    this.start.addEventListener('click', this.start)
+    this.startb.addEventListener('click', this.start)
+    this.pauseb.addEventListener('click', this.pause)
+
   }
-  start() {
-    console.log('starting')
+  start = () => {
+    this.tick()
+    this.timer = setInterval(this.tick, 1000)
+  }
+
+  tick() {
+    console.log('tick calling')
+  }
+
+  pause = () => {
+    clearInterval(this.timer)
   }
 }
 
 const duration = document.querySelector('#duration')
-const start = document.querySelector('#start')
+const startb = document.querySelector('#start')
 const pause = document.querySelector('#pause')
+
+const timer = new Timer(duration, startb, pause)
