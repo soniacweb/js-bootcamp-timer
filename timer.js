@@ -7,21 +7,24 @@ class Timer {
       this.onStart = callbacks.onStart
       this.onTick = callbacks.onTick
       this.onComplete = callbacks.onComplete 
-
-
     }
+
     this.startb.addEventListener('click', this.start)
     this.pauseb.addEventListener('click', this.pause)
-
   }
+
   start = () => {
     if (this.onStart) {
       this.onStart()
     }
     this.tick()
-    setInterval(this.tick, 1000)
+    this.interval = setInterval(this.tick, 1000)
   }
 
+  pause = () => {
+    clearInterval(this.interval)
+  }
+  
   tick = () => {
     if (this.timeRemaining <= 0) {
       this.pause()
@@ -43,8 +46,5 @@ class Timer {
   set timeRemaining(time) {
     this.duration.value = time
   }
-
-  pause = () => {
-    clearInterval(this.timer)
-  }
+ 
 }
